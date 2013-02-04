@@ -10,13 +10,7 @@ module IB
 
     def read_string
       string = self.gets(EOL)
-
-      until string
-        # Silently ignores nils
-        string = self.gets(EOL)
-        sleep 0.1
-      end
-
+      raise SocketError.new "socke may close" if !string
       string.chop
     end
 
